@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'User edits and existing job' do
   scenario 'a user can edit a job' do
     company = Company.create(name: "ESPN", city: "LA")
-    job = company.jobs.create(title: "Developer", description: "Something", level_of_interest: 16)
+    cat1 = Category.create(title: "Education")
+    job = company.jobs.create(title: "Developer", description: "Something", level_of_interest: 16, category: cat1)
 
     visit company_job_path(company, job)
     click_on "Edit"
