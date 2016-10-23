@@ -7,3 +7,21 @@ All Jobs for <strong><%= @company.name %></strong>
 <% end %>
 
 <p> <%= link_to "Add New Job", new_company_job_path %> </p>
+<p> <%= link_to "Add Contact", new_company_contact_path(@company) %> </p>
+
+<h3> Company Contacts </h3>
+  <table border = 1px >
+    <th><p>Name</p> </th>
+    <th>Position </th>
+    <th>Email </th>
+    <th> Company </th>
+
+<% @contacts.each do |contact| %>
+  <tr>
+    <td> <%= contact.name %> </td>
+    <td> <%= contact.position %> </td>
+    <td> <%= contact.email %> </td>
+    <td> <%= @company.name %> </td>
+  </tr>
+<% end %>
+</table>
