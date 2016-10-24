@@ -3,4 +3,8 @@ class Company < ActiveRecord::Base
   validates :name, uniqueness: true
   has_many :jobs
   has_many :contacts
+
+  def self.sort_by_location
+    order(:city) 
+  end
 end
