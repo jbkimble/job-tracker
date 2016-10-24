@@ -24,6 +24,5 @@ describe "User creates a new company" do
     expect(page).to have_content("Jane Doe")
     expect(page).to have_content("CEO")
     expect(page).to have_content("jane@company.com")
-    save_and_open_page
   end
 end

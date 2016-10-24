@@ -58,7 +58,6 @@ class JobsController < ApplicationController
 
   def interest
       render :interest
-
   end
 
   private

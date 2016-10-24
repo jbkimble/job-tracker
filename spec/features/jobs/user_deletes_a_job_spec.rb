@@ -6,6 +6,7 @@ describe "User deletes existing job" do
     job = company.jobs.create(title: "Developer", description: "Something", level_of_interest: 16)
 
     visit company_jobs_path(company, job)
-    expect(page).to have_content("All Jobs for #{company.name}")
+    click_on "Delete Job"
+    expect(page).to have_content("Developer was deleted")
   end
 end
