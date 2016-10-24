@@ -1,8 +1,11 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
-    if params[:sort]
+    if params[:sort] == "location"
       render :location
+    elsif params[:location]
+      @city = params[:location]
+      render :city
     else
       @companies
     end

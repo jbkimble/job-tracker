@@ -50,7 +50,15 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    # implement on your own!
+    @job = Job.find(params[:id])
+    @job.delete
+    flash[:success] = "#{@job.title} was deleted"
+    redirect_to company_jobs_path
+  end
+
+  def interest
+      render :interest
+
   end
 
   private
