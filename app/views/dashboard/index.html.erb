@@ -1,0 +1,43 @@
+<h1>Welcome To The Dashboard</h1>
+
+<h2> Count of Jobs By Level of Interest</h2>
+<table>
+  <th> Level of Interest </th>
+  <th> Number of Jobs </th>
+  <% Job.jobs_by_level_of_interest.each do |key, value|  %>
+    <tr>
+    <td> <%= key %> </td>
+    <td> <%= value.count %> </td>
+  </tr>
+  <% end %>
+</table>
+
+<h2>Top Three Companies By Average Interest</h2>
+
+<table>
+  <th> Company Name</th>
+  <th> Level of Interest</th>
+<% Company.top_three_companies_by_interest.each do |level, company| %>
+  <tr>
+    <td> <%= company.name %> </td>
+    <td> <%= level %> </td>
+  </tr>
+  <% end %>
+</table>
+
+<table>
+<h2> Number of Jobs By Location </h2>
+  <th>City</th>
+  <th>Number of Jobs</th>
+
+<% Company.list_number_of_jobs_by_location.each do |location, jobs| %>
+  <tr>
+    <td> <%= link_to location, "/companies?location=#{location}" %> </td>
+    <td> <%= jobs %> </td>
+  </tr>
+<% end %>
+</table>
+<br>
+<br>
+<br>
+<%= link_to "All Companies", companies_path %>

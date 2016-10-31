@@ -1,5 +1,37 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h1><%= @company.name %> Jobs Page </h1>
 
+<br>
+<table border = 1px>
+  <th>Job Title</th>
+  <th>Delete Job</th>
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <tr>
+
+  <td> <%= link_to job.title, company_job_path(@company, job) %> </td>
+  <td> <%= link_to "Delete Job", company_job_path(@company, job), method: "delete" %> </td>
+  </tr>
 <% end %>
+</table>
+
+
+<p> <%= link_to "Add New Job", new_company_job_path %> </p>
+
+<h3> Company Contacts </h3>
+  <table border = 1px >
+    <th><p>Name</p> </th>
+    <th>Position </th>
+    <th>Email </th>
+    <th> Company </th>
+
+<% @contacts.each do |contact| %>
+  <tr>
+    <td> <%= contact.name %> </td>
+    <td> <%= contact.position %> </td>
+    <td> <%= contact.email %> </td>
+    <td> <%= @company.name %> </td>
+  </tr>
+<% end %>
+</table>
+
+<p> <%= link_to "Add Contact", new_company_contact_path(@company) %> </p>
+<%= link_to "Back to all companies", companies_path%>

@@ -7,4 +7,20 @@ Description: <%= @job.description %>
 Level of Interest: <%= @job.level_of_interest %>
 <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+Company: <%= link_to @job.company.name, company_path(@job.company) %> <br>
+
+Category: <%=  @job.category.nil? ? "not assigned" : @job.category.title %>
+
+<br>
+
+Edit: <%= link_to "Edit", edit_company_job_path(@job.company, @job) %> <br>
+Delete: <%= link_to "Delete Job", company_job_path, method: "delete" %> <br>
+All Jobs: <%= link_to "All Jobs", company_jobs_path %>
+<%= render partial: 'comments/form' %>
+
+<% @job.comments.reverse_order.each do |comment| %>
+<p> Comment: <%= comment.body %> </p>
+<p> Update At: <%= comment.updated_at %> </p>
+<p> Created At: <%= comment.created_at %> </p>
+<br>
+<% end %>

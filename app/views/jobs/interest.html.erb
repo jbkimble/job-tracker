@@ -1,0 +1,12 @@
+<h1> Jobs By Level of Interest </h1>
+<table>
+<th> Job </th>
+<th> Level of Interest </th>
+
+<% Job.all.order(:level_of_interest).reverse.each do |job| %>
+  <tr>
+    <td> <%= job.title %> </td>
+    <td> <%= job.level_of_interest %> </td> 
+  </tr>
+  <% end %>
+</table>
